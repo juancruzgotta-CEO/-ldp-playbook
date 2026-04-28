@@ -1,0 +1,700 @@
+
+<h2 class="sr-only">LDP Sales Playbook Final — 5 perfiles, Toluca FC y Botafogo FR</h2>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+.r{font-family:'DM Sans',var(--font-sans),sans-serif;color:var(--color-text-primary);background:transparent;padding:0 0 2rem;}
+
+/* COVER */
+.cover{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem 1.75rem;margin-bottom:1.5rem;}
+.cover-inner{display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:1rem;}
+.cvbadge{background:#0F6E56;color:#9FE1CB;font-family:'Syne',sans-serif;font-weight:800;font-size:24px;padding:10px 16px;border-radius:8px;flex-shrink:0;letter-spacing:-0.5px;}
+.cvtext h1{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--color-text-primary);line-height:1.2;margin-bottom:4px;}
+.cvtext p{font-size:12px;color:var(--color-text-secondary);line-height:1.5;}
+.vbadge{display:inline-block;font-size:11px;background:#E1F5EE;color:#085041;padding:2px 8px;border-radius:4px;font-weight:500;margin-bottom:5px;}
+.principle{background:#085041;border-radius:8px;padding:10px 14px;font-size:12px;color:#9FE1CB;font-weight:500;line-height:1.5;}
+.principle strong{color:#E1F5EE;}
+
+/* NAV */
+.tnav{display:flex;gap:5px;margin-bottom:1.25rem;flex-wrap:wrap;}
+.tbtn{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:5px 12px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);cursor:pointer;transition:all 0.15s;}
+.tbtn:hover{background:var(--color-background-secondary);}
+.tbtn.active{background:#0F6E56;color:#E1F5EE;border-color:#0F6E56;}
+.tpanel{display:none;}.tpanel.active{display:block;}
+.stitle{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--color-text-secondary);margin-bottom:.9rem;padding-bottom:5px;border-bottom:0.5px solid var(--color-border-tertiary);}
+
+/* BARS */
+.pbar{background:#E1F5EE;border-left:3px solid #1D9E75;border-radius:0 8px 8px 0;padding:9px 12px;margin-bottom:1rem;font-size:12px;color:#085041;font-weight:500;line-height:1.5;}
+.pbar-amber{background:#FAEEDA;border-left:3px solid #BA7517;border-radius:0 8px 8px 0;padding:9px 12px;margin-bottom:1rem;font-size:12px;color:#854F0B;font-weight:500;line-height:1.5;}
+.pbar-blue{background:#E6F1FB;border-left:3px solid #378ADD;border-radius:0 8px 8px 0;padding:9px 12px;margin-bottom:1rem;font-size:12px;color:#185FA5;font-weight:500;line-height:1.5;}
+
+/* PROFILES */
+.pgrid5{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:1rem;}
+.pcard{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:10px;cursor:pointer;transition:border-color 0.15s;}
+.pcard:hover{border-color:var(--color-border-secondary);}
+.pcard.sel{border:1.5px solid #1D9E75;}
+.picon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;margin-bottom:5px;}
+.pcard h3{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;margin-bottom:2px;color:var(--color-text-primary);}
+.pcard p{font-size:10px;color:var(--color-text-secondary);line-height:1.3;}
+.dpanel{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.1rem;margin-bottom:1.25rem;}
+.dhead{display:flex;align-items:center;gap:9px;margin-bottom:.9rem;padding-bottom:9px;border-bottom:0.5px solid var(--color-border-tertiary);}
+.dhead h2{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;}
+.brole{font-size:11px;padding:2px 9px;border-radius:20px;background:#E1F5EE;color:#085041;font-weight:500;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;}
+.mc{background:var(--color-background-secondary);border-radius:8px;padding:9px 11px;}
+.mclabel{font-size:11px;color:var(--color-text-secondary);font-weight:500;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:5px;}
+.ql{list-style:none;}
+.ql li{font-size:12px;color:var(--color-text-primary);line-height:1.5;padding:4px 0;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;gap:7px;}
+.ql li:last-child{border-bottom:none;}
+.qn{font-size:11px;font-weight:700;color:#1D9E75;min-width:13px;padding-top:1px;}
+.ptag{display:inline-block;font-size:11px;padding:2px 7px;border-radius:4px;margin:2px;font-weight:500;}
+.pred{background:#FCEBEB;color:#A32D2D;}.pamb{background:#FAEEDA;color:#854F0B;}.pblu{background:#E6F1FB;color:#185FA5;}
+
+/* PLATAFORMAS */
+.pgrid3{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:1rem;}
+.platc{background:var(--color-background-secondary);border-radius:8px;padding:11px;border:0.5px solid var(--color-border-tertiary);}
+.platc h4{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;margin-bottom:7px;}
+.ci{display:flex;gap:5px;font-size:12px;padding:3px 0;line-height:1.4;}
+.cy{color:#1D9E75;}.cn{color:#E24B4A;}.cm{color:#BA7517;}
+.ldph{border:1.5px solid #1D9E75;background:#E1F5EE;}
+.ldph h4{color:#085041;}.ldph .ci{color:#085041;}
+
+/* OBJECIONES */
+.rb{background:var(--color-background-secondary);border-radius:8px;padding:10px 12px;margin-bottom:8px;border-left:2px solid var(--color-border-tertiary);}
+.rb .obj{font-size:11px;font-weight:500;color:var(--color-text-secondary);margin-bottom:4px;}
+.rb .ans{font-size:12px;color:var(--color-text-primary);line-height:1.5;}
+.rb .ans strong{color:#1D9E75;font-weight:500;}
+
+/* CURVA */
+.csteps{display:flex;flex-direction:column;}
+.cstep{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:0.5px solid var(--color-border-tertiary);}
+.cstep:last-child{border-bottom:none;}
+.sdw{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+.sdot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;flex-shrink:0;}
+.sline{width:1px;flex:1;min-height:14px;background:var(--color-border-tertiary);margin-top:4px;}
+.scon{flex:1;}
+.stier{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;}
+.stit{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:2px;}
+.sdesc{font-size:12px;color:var(--color-text-secondary);line-height:1.5;margin-bottom:5px;}
+.stags{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:4px;}
+.stag{font-size:11px;padding:2px 7px;border-radius:4px;font-weight:500;}
+.sldp{font-size:12px;color:#0F6E56;font-weight:500;}
+.s1 .sdot{background:#D3D1C7;color:#444441;}.s1 .stier{color:#888780;}
+.s2 .sdot{background:#C0DD97;color:#27500A;}.s2 .stier{color:#3B6D11;}
+.s3 .sdot{background:#5DCAA5;color:#04342C;}.s3 .stier{color:#0F6E56;}
+.s4 .sdot{background:#1D9E75;color:#E1F5EE;}.s4 .stier{color:#085041;}
+.s5 .sdot{background:#085041;color:#9FE1CB;}.s5 .stier{color:#04342C;}
+.tgray{background:#F1EFE8;color:#5F5E5A;}.tgreen{background:#EAF3DE;color:#3B6D11;}
+.tteal{background:#E1F5EE;color:#0F6E56;}.tblue{background:#E6F1FB;color:#185FA5;}
+
+/* CASOS */
+.casetabs{display:flex;gap:5px;margin-bottom:1rem;}
+.ctbtn{font-size:11px;font-weight:500;padding:5px 14px;border-radius:20px;border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);cursor:pointer;transition:all 0.15s;}
+.ctbtn:hover{background:var(--color-background-secondary);}
+.ctbtn.active{background:#0F6E56;color:#E1F5EE;border-color:#0F6E56;}
+.ctpanel{display:none;}.ctpanel.active{display:block;}
+.chead{border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;display:flex;align-items:center;gap:12px;}
+.clogo{font-family:'Syne',sans-serif;font-weight:800;font-size:14px;padding:7px 11px;border-radius:8px;flex-shrink:0;}
+.cht h2{font-family:'Syne',sans-serif;font-size:15px;font-weight:800;margin-bottom:3px;}
+.cht p{font-size:11px;line-height:1.4;}
+.clvl{display:inline-flex;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:.9rem;}
+.igrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:1rem;}
+.icard{background:var(--color-background-secondary);border-radius:8px;padding:9px 11px;}
+.icard h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--color-text-secondary);margin-bottom:5px;}
+.icard p{font-size:12px;color:var(--color-text-primary);line-height:1.5;}
+.tl{display:flex;flex-direction:column;}
+.tli{display:flex;gap:9px;padding:9px 0;border-bottom:0.5px solid var(--color-border-tertiary);}
+.tli:last-child{border-bottom:none;}
+.tldot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.tlc{flex:1;}
+.tllabel{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:2px;}
+.tltxt{font-size:12px;color:var(--color-text-primary);line-height:1.5;}
+.tlq{font-size:12px;color:var(--color-text-secondary);font-style:italic;line-height:1.5;margin-top:3px;border-left:2px solid #1D9E75;padding-left:7px;}
+.tlq-a{border-left-color:#BA7517;}
+.moment-lesson{font-size:11px;font-weight:500;padding:6px 9px;border-radius:6px;margin-top:5px;}
+.ml-t{background:#E1F5EE;color:#085041;}
+.ml-a{background:#FAEEDA;color:#854F0B;}
+.ns{background:var(--color-background-secondary);border-radius:8px;padding:9px 11px;margin-bottom:6px;display:flex;gap:9px;align-items:flex-start;}
+.nso{font-size:11px;font-weight:700;color:#0F6E56;min-width:70px;flex-shrink:0;padding-top:1px;}
+.nst{font-size:12px;color:var(--color-text-primary);line-height:1.5;}
+.gold-quote{background:#0F6E56;border-radius:8px;padding:12px 16px;margin-bottom:1rem;}
+.gold-quote p{font-size:13px;font-style:italic;color:#9FE1CB;line-height:1.6;}
+.gold-quote .att{font-size:11px;color:#5DCAA5;margin-top:5px;}
+.sq{background:var(--color-background-secondary);border-left:3px solid #BA7517;border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:8px;}
+.sq-label{font-size:11px;font-weight:700;color:#854F0B;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;}
+.sq-body{font-size:12px;color:var(--color-text-primary);line-height:1.5;font-style:italic;}
+.sq-note{font-size:11px;color:#854F0B;margin-top:4px;}
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1rem;}
+.stack-card{background:var(--color-background-secondary);border-radius:8px;padding:9px 11px;}
+.stack-card h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--color-text-secondary);margin-bottom:6px;}
+.stack-item{font-size:12px;color:var(--color-text-primary);padding:3px 0;border-bottom:0.5px solid var(--color-border-tertiary);line-height:1.4;}
+.stack-item:last-child{border-bottom:none;}
+
+/* ICP */
+.pos-card{background:#085041;border-radius:var(--border-radius-lg);padding:14px 16px;text-align:center;margin-bottom:1rem;}
+.pos-card p{font-size:12px;color:#9FE1CB;line-height:1.6;margin-bottom:4px;}
+.pos-card strong{color:#E1F5EE;font-size:15px;}
+.icp-table{width:100%;border-collapse:collapse;margin-bottom:1rem;}
+.icp-table th{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--color-text-secondary);padding:6px 10px;text-align:left;border-bottom:0.5px solid var(--color-border-tertiary);}
+.icp-table td{font-size:12px;color:var(--color-text-primary);padding:7px 10px;border-bottom:0.5px solid var(--color-border-tertiary);line-height:1.4;vertical-align:top;}
+.icp-table tr:last-child td{border-bottom:none;}
+.icp-table td:first-child{font-weight:500;color:var(--color-text-secondary);white-space:nowrap;}
+.diff-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:1rem;}
+.diff-card{background:var(--color-background-secondary);border-radius:8px;padding:11px 12px;}
+.diff-card h4{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;margin-bottom:5px;}
+.diff-card p{font-size:12px;color:var(--color-text-secondary);line-height:1.5;margin-bottom:6px;}
+.feature-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:1rem;}
+.fc{background:var(--color-background-secondary);border-radius:8px;padding:9px 10px;text-align:center;}
+.fc .fn{font-size:11px;font-weight:700;color:var(--color-text-primary);margin-bottom:3px;}
+.fc .fd{font-size:10px;color:var(--color-text-secondary);line-height:1.3;}
+
+/* CIERRE */
+.kpill{display:inline-block;font-size:11px;font-weight:500;padding:3px 9px;border-radius:20px;margin:3px;background:#0F6E56;color:#E1F5EE;}
+.ksec{margin-bottom:.9rem;}
+.kslabel{font-size:11px;font-weight:700;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:5px;}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:1rem;}
+.ccard{background:var(--color-background-secondary);border-radius:8px;padding:11px;}
+.ccard h4{font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:5px;}
+.ccard p{font-size:12px;color:var(--color-text-primary);line-height:1.5;font-style:italic;}
+.abcbar{background:#0F6E56;border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:14px;}
+.abcl{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#9FE1CB;letter-spacing:4px;flex-shrink:0;}
+.abcbar p{font-size:12px;color:#9FE1CB;line-height:1.5;}
+.abcbar strong{color:#E1F5EE;}
+</style>
+
+<div class="r">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cvbadge">LDP</div>
+    <div class="cvtext">
+      <div class="vbadge">Playbook definitivo — 5 perfiles · Toluca FC · Botafogo FR</div>
+      <h1>Sales Playbook — guía de conversación</h1>
+      <p>Perfiles con preguntas específicas, objeciones con respuestas validadas en reuniones reales, curva de adopción, dos casos con timestamps y el ICP definitivo.</p>
+    </div>
+  </div>
+  <div class="principle">
+    <strong>Principio clave:</strong> No vendas la plataforma — identificá el dolor, mostrá cómo LDP lo resuelve hoy y a dónde los lleva mañana.
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="tnav" id="mainNav">
+  <button class="tbtn active" data-tab="perfiles">Perfiles y preguntas</button>
+  <button class="tbtn" data-tab="plataformas">Ya usan otra plataforma</button>
+  <button class="tbtn" data-tab="curva">Curva de adopción</button>
+  <button class="tbtn" data-tab="objeciones">Objeciones</button>
+  <button class="tbtn" data-tab="casos">Casos reales</button>
+  <button class="tbtn" data-tab="icp">ICP y posicionamiento</button>
+  <button class="tbtn" data-tab="cierre">Palabras clave y cierre</button>
+</div>
+
+<!-- TAB 1: PERFILES -->
+<div class="tpanel active" id="tab-perfiles">
+  <div class="stitle">Seleccioná el perfil del prospecto</div>
+  <div class="pgrid5" id="profileGrid">
+    <div class="pcard sel" data-profile="director" onclick="selP('director')">
+      <div class="picon" style="background:#E1F5EE;">🏟️</div>
+      <h3>Director deportivo</h3><p>Visión estratégica, plantilla, presupuesto</p>
+    </div>
+    <div class="pcard" data-profile="transferencias" onclick="selP('transferencias')">
+      <div class="picon" style="background:#FBEAF0;">💼</div>
+      <h3>Director de transferencias</h3><p>Ejecución de mercado, ventas, entradas</p>
+    </div>
+    <div class="pcard" data-profile="scout" onclick="selP('scout')">
+      <div class="picon" style="background:#E6F1FB;">🔍</div>
+      <h3>Jefe de scouting</h3><p>Identificación de jugadores, cobertura</p>
+    </div>
+    <div class="pcard" data-profile="analista" onclick="selP('analista')">
+      <div class="picon" style="background:#FAEEDA;">📊</div>
+      <h3>Analista de datos</h3><p>Dashboards, métricas, reportes — frecuentemente el único</p>
+    </div>
+    <div class="pcard" data-profile="cientifico" onclick="selP('cientifico')">
+      <div class="picon" style="background:#FAECE7;">🧪</div>
+      <h3>Científico de datos</h3><p>Modelos propios, APIs, arquitectura</p>
+    </div>
+  </div>
+  <div class="dpanel" id="profileDetail"></div>
+</div>
+
+<!-- TAB 2: PLATAFORMAS -->
+<div class="tpanel" id="tab-plataformas">
+  <div class="stitle">Cuando ya usan otra plataforma</div>
+  <div class="pbar">No competir de frente — flanquear. LDP no reemplaza, conecta y potencia lo que ya tienen.</div>
+  <div class="pgrid3">
+    <div class="platc">
+      <h4>SkillCorner / StatsBomb / Opta / B Soccer / Hudl</h4>
+      <div class="ci"><span class="cy">✓</span><span>Datos técnicos y físicos de calidad</span></div>
+      <div class="ci"><span class="cy">✓</span><span>Rankings de jugadores destacados</span></div>
+      <div class="ci"><span class="cn">✗</span><span>Jugadores que no juegan pero encajan</span></div>
+      <div class="ci"><span class="cn">✗</span><span>Argumento sin video para la directiva</span></div>
+      <div class="ci"><span class="cn">✗</span><span>Matching IA con argumentos escritos</span></div>
+      <div class="ci"><span class="cn">✗</span><span>Unificación multi-fuente automática</span></div>
+      <div class="ci"><span class="cn">✗</span><span>Ranking en tiempo real (no cada 2 meses)</span></div>
+    </div>
+    <div class="platc ldph">
+      <h4>LDP</h4>
+      <div class="ci"><span class="cy">✓</span><span>+800 ligas — incluso contexto LATAM</span></div>
+      <div class="ci"><span class="cy">✓</span><span>Jugadores invisibles — bajo minutos + alto score</span></div>
+      <div class="ci"><span class="cy">✓</span><span>Estilo de contratación por club como argumento</span></div>
+      <div class="ci"><span class="cy">✓</span><span>Matching IA con argumentos escritos</span></div>
+      <div class="ci"><span class="cy">✓</span><span>Unificación multi-fuente (Google Cloud partner)</span></div>
+      <div class="ci"><span class="cy">✓</span><span>Custom scoring / ADN por posición automatizado</span></div>
+      <div class="ci"><span class="cy">✓</span><span>Mercado abierto freemium — alternativa a TransferRoom</span></div>
+    </div>
+    <div class="platc">
+      <h4>TransferRoom / hub interno propio</h4>
+      <div class="ci"><span class="cy">✓</span><span>Red de contactos entre clubes</span></div>
+      <div class="ci"><span class="cy">✓</span><span>Datos internos propios centralizados</span></div>
+      <div class="ci"><span class="cm">~</span><span>Calidad de datos externos variable</span></div>
+      <div class="ci"><span class="cn">✗</span><span>Descubrimiento de jugadores invisibles</span></div>
+      <div class="ci"><span class="cn">✗</span><span>Modelos de matching disponibles vía API</span></div>
+      <div class="ci"><span class="cn">✗</span><span>Foco en segmento sub-5M</span></div>
+    </div>
+  </div>
+  <div class="dpanel">
+    <div class="dhead"><h2>Guía por escenario</h2></div>
+    <div class="two">
+      <div>
+        <div class="mclabel" style="margin-bottom:7px;">Tienen triple match / hub propio sofisticado</div>
+        <ul class="ql">
+          <li><span class="qn">→</span><span>¿El proceso genera oportunidades nuevas o valida candidatos que ya tenían?</span></li>
+          <li><span class="qn">→</span><span>¿Pueden encontrar jugadores que no juegan pero encajan en el ADN del club?</span></li>
+          <li><span class="qn">→</span><span>Cuando llevan ese jugador al DT, ¿el argumento puede ser solo el dato o necesitan video?</span></li>
+          <li><span class="qn">→</span><span>¿Analizan el historial de fichajes de equipos que fichan bien para encontrar jugadores subvalorados?</span></li>
+        </ul>
+        <div style="margin-top:8px;padding:9px;background:#E1F5EE;border-radius:8px;font-size:12px;color:#085041;line-height:1.5;">
+          <strong>Key Toluca:</strong> Carlos dijo que si el jugador tiene pocos minutos, el video no justifica la decisión ante la directiva. El argumento tiene que ser el historial del club que lo fichó. LDP construye exactamente ese argumento.
+        </div>
+      </div>
+      <div>
+        <div class="mclabel" style="margin-bottom:7px;">Usan múltiples fuentes de datos sin unificar</div>
+        <ul class="ql">
+          <li><span class="qn">→</span><span>¿Cuántas fuentes distintas maneja el equipo hoy?</span></li>
+          <li><span class="qn">→</span><span>¿El analista pasa tiempo integrando fuentes o analizando?</span></li>
+          <li><span class="qn">→</span><span>¿Usan Cloud AI o scripts para extraer datos? ¿Eso también unifica las fuentes?</span></li>
+          <li><span class="qn">→</span><span>¿El ranking de jugadores corre en tiempo real o por lotes periódicos?</span></li>
+        </ul>
+        <div style="margin-top:8px;padding:9px;background:#FAEEDA;border-radius:8px;font-size:12px;color:#854F0B;line-height:1.5;">
+          <strong>Key Botafogo:</strong> Brunno Noce en ~min 14: "Lo que mostraron es exactamente lo que nuestro analista hace a mano." Enrique usaba Cloud AI para extracción — Juan Cruz aclaró en vivo que eso facilita mostrar datos pero no automatiza ni unifica. Esa corrección generó credibilidad inmediata.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 3: CURVA -->
+<div class="tpanel" id="tab-curva">
+  <div class="stitle">Curva de adopción — dónde están y adónde los llevamos</div>
+  <div class="pbar">La pregunta clave: ¿Cómo trabajan hoy? → eso dice el nivel → ahí entra LDP.</div>
+  <div class="csteps">
+    <div class="cstep s1">
+      <div class="sdw"><div class="sdot">1</div><div class="sline"></div></div>
+      <div class="scon">
+        <div class="stier">Silver — Inicial</div><div class="stit">Standard Dashboards</div>
+        <div class="sdesc">Sin equipo de datos. Decisiones intuitivas. Sin personalización.</div>
+        <div class="stags"><span class="stag tgray">Sin equipo de datos</span><span class="stag tgray">Dashboards predefinidos</span></div>
+        <div class="sldp">👉 Entry point: mercado abierto gratuito. Primer dashboard funcional sin IT.</div>
+      </div>
+    </div>
+    <div class="cstep s2">
+      <div class="sdw"><div class="sdot">2</div><div class="sline"></div></div>
+      <div class="scon">
+        <div class="stier">Gold — Intermedio</div><div class="stit">Custom Data Visualizations</div>
+        <div class="sdesc">Un analista. Reportes manuales. El analista es el cuello de botella de todo el proceso.</div>
+        <div class="stags"><span class="stag tgreen">Rol: Data Analyst</span><span class="stag tgreen">Proceso reactivo</span></div>
+        <div class="sldp">👉 LDP automatiza lo que el analista hace a mano. El proceso pasa de reactivo a proactivo.</div>
+      </div>
+    </div>
+    <div class="cstep s3">
+      <div class="sdw"><div class="sdot">3</div><div class="sline"></div></div>
+      <div class="scon">
+        <div class="stier">Creator — Avanzado</div><div class="stit">Algoritmo propio + APIs + scripts de extracción</div>
+        <div class="sdesc">Tienen criterio y algoritmo propio. Un analista hace todo con Cloud AI o scripts. Múltiples fuentes sin unificar. Ranking por lotes, no en tiempo real.</div>
+        <div class="stags"><span class="stag tteal">Algoritmo propio</span><span class="stag tteal">1 analista = cuello de botella</span><span class="stag tteal">Fuentes fragmentadas</span></div>
+        <div class="sldp">👉 LDP unifica fuentes, corre el ranking en tiempo real y libera al analista. <strong style="color:#1D9E75;">→ Caso: Botafogo FR</strong></div>
+      </div>
+    </div>
+    <div class="cstep s4">
+      <div class="sdw"><div class="sdot">4</div><div class="sline"></div></div>
+      <div class="scon">
+        <div class="stier">Elite — Profesional</div><div class="stit">Hub propio + científico de datos + triple match</div>
+        <div class="sdesc">Infraestructura muy avanzada. Triple match sofisticado. Científico de datos recién incorporado. El problema no es eficiencia — es descubrimiento. Los datos validan pero no generan oportunidades nuevas. El jugador invisible no tiene video para justificarlo ante la directiva.</div>
+        <div class="stags"><span class="stag tblue">Hub integrado</span><span class="stag tblue">Triple match</span><span class="stag tblue">Modo confirmar, no descubrir</span></div>
+        <div class="sldp">👉 LDP agrega descubrimiento + el argumento que el video no puede dar: el historial del club que lo fichó. <strong style="color:#1D9E75;">→ Caso: Toluca FC</strong></div>
+      </div>
+    </div>
+    <div class="cstep s5">
+      <div class="sdw"><div class="sdot">5</div></div>
+      <div class="scon">
+        <div class="stier">Elite + Transfer Success — Máximo</div><div class="stit">Club Analytical App</div>
+        <div class="sdesc">Plataforma propia del club. Los datos alimentan decisiones, las decisiones impactan el mercado. LDP es la infraestructura de decisión y ejecución.</div>
+        <div class="stags"><span class="stag" style="background:#E1F5EE;color:#085041;">Data Team completo</span><span class="stag" style="background:#E1F5EE;color:#085041;">Plataforma propia</span><span class="stag" style="background:#E1F5EE;color:#085041;">Transfer Success</span></div>
+        <div class="sldp">👉 LDP es la columna vertebral. El club opera con ventaja competitiva estructural en el mercado.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB 4: OBJECIONES -->
+<div class="tpanel" id="tab-objeciones">
+  <div class="stitle">Objeciones — con respuestas validadas en reuniones reales</div>
+  <div class="rb"><div class="obj">O: "Si el jugador tiene pocos minutos, el video no alcanza para justificarlo ante la directiva."</div><div class="ans">Exactamente — ese es EL problema que LDP resuelve. <strong>El argumento no puede ser el video cuando hay 20 minutos en 30 partidos.</strong> El argumento tiene que ser diferente: qué club lo fichó, cuál es el historial de scouting de ese club, qué jugadores similares salieron de ahí y cuánto jugaron después. LDP construye ese argumento con datos de negocio, no de rendimiento en cancha. (Validado por Carlos Gómez Cervantes, Toluca, ~min 1:11)</div></div>
+  <div class="rb"><div class="obj">O: "Ya tenemos triple match — data + scout + plataforma externa. Funcionamos bien."</div><div class="ans">El triple match es un sistema excelente de validación. Lo que los clubes más sofisticados nos dicen es que el sistema confirma lo que ya saben pero <strong>no descubre lo que nadie está viendo.</strong> ¿Pueden identificar jugadores que no están en el radar de clubes con presupuesto similar? Toluca lo dijo: "si pregunto a Monterrey, Tigres o América, seguramente tendremos en lista a los mismos jugadores." LDP agrega esa ventaja de información.</div></div>
+  <div class="rb"><div class="obj">O: "Ya tenemos plataforma propia con hub, APIs y científico de datos — no necesitamos otra herramienta."</div><div class="ans">Eso nos dice que el club está en el nivel más avanzado del mercado — exactamente con quienes trabajamos. La pregunta es: <strong>¿el hub tiene la capa de descubrimiento y el argumento de negocio para presentar al directorio?</strong> LDP no reemplaza el hub. Se integra vía API y le agrega lo que el hub no puede construir solo. Con Toluca lo pusimos así cuando mostraron su plataforma: "a esta plataforma se le puede agregar una capa de inteligencia de mercado."</div></div>
+  <div class="rb"><div class="obj">O: "Usamos Cloud AI / scripts para extraer datos de la API — ya lo tenemos automatizado."</div><div class="ans"><strong>Cloud AI facilita mostrar datos, no automatiza ni unifica el proceso.</strong> Si SkillCorner, StatsBomb y Opta vienen de tres lugares distintos y alguien los tiene que juntar manualmente, el proceso sigue dependiendo de una persona. LDP unifica esas fuentes bajo un motor de integración que corre solo. (Corregido en vivo a Brunno Noce, Botafogo, ~min 14)</div></div>
+  <div class="rb"><div class="obj">O: "TransferRoom es caro pero lo usamos — no podemos agregar otra suscripción."</div><div class="ans">TransferRoom tiene valor para la red de contactos. LDP es diferente en dos puntos clave: <strong>el mercado abierto es freemium — sin costo de suscripción — y tiene matching automático que explica por qué un club específico necesita ese jugador ahora.</strong> Brunno Noce lo dijo literalmente: "TransferRoom is an expensive platform, a lot of teams don't have the money to sign them." El mercado de LDP cubre el 87% de transacciones sub-5M donde TransferRoom no llega.</div></div>
+  <div class="rb"><div class="obj">O: "¿Cuál es la diferencia real con lo que hacemos manualmente hoy?"</div><div class="ans">La mejor respuesta a eso la dio el coordinador de scouting de Botafogo en nuestra reunión: <strong>"Most of what you showed is exactly what our analyst does manually."</strong> Eso es el punto. LDP hace que ese proceso que hoy lleva días y depende de una sola persona pase a ser automático, en tiempo real y escalable sin agregar recursos.</div></div>
+</div>
+
+<!-- TAB 5: CASOS -->
+<div class="tpanel" id="tab-casos">
+  <div class="stitle">Casos reales — momentos exactos con timestamp</div>
+  <div class="casetabs" id="caseNav">
+    <button class="ctbtn active" data-case="toluca">Toluca FC — México</button>
+    <button class="ctbtn" data-case="botafogo">Botafogo FR — Brasil</button>
+    <button class="ctbtn" data-case="patron">Patrón y señales de compra</button>
+  </div>
+
+  <!-- TOLUCA -->
+  <div class="ctpanel active" id="case-toluca">
+    <div class="chead" style="background:#085041;">
+      <div class="clogo" style="background:#9FE1CB;color:#085041;">TFC</div>
+      <div class="cht">
+        <h2 style="color:#E1F5EE;">Toluca FC · Liga MX · 27 abr 2026</h2>
+        <p style="color:#9FE1CB;">Carlos Gómez Cervantes (Análisis) · Santiago San Román · Víctor Palacios</p>
+      </div>
+    </div>
+    <div class="clvl" style="background:#1D9E75;color:#E1F5EE;">Nivel 4 — Elite: Hub propio + APIs + científico de datos recién incorporado. Problema: descubrimiento, no eficiencia.</div>
+    <div class="pbar" style="margin-bottom:1rem;">"Ustedes hacen perfecto lo obvio. Nosotros los ayudamos a encontrar lo invisible."</div>
+
+    <div class="stitle">Stack real confirmado</div>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <h4>Proceso de scouting</h4>
+        <div class="stack-item">Manual de scouting con variables por posición</div>
+        <div class="stack-item">3 scouts + Carlos (líder) → campogramas en B Soccer</div>
+        <div class="stack-item">Rankings con métricas custom → B Soccer genera cada bimestre</div>
+        <div class="stack-item">Triple match: data + scout + lista B Soccer</div>
+      </div>
+      <div class="stack-card">
+        <h4>Infraestructura de datos</h4>
+        <div class="stack-item">Hub interno (Hob) → planteles, contratos, GPS, nutrición, plan de sucesión</div>
+        <div class="stack-item">APIs: TransferRoom + GPS (Wimu → Catapult en verano)</div>
+        <div class="stack-item">Científico de datos recién contratado (~1 mes)</div>
+      </div>
+      <div class="stack-card">
+        <h4>Análisis y mercado</h4>
+        <div class="stack-item">PDFs de rivales manuales partido a partido</div>
+        <div class="stack-item">Análisis numérico de liga cada tercio de torneo</div>
+        <div class="stack-item">Competidores: Monterrey, Tigres, América, Cruz Azul</div>
+      </div>
+    </div>
+
+    <div class="stitle">Momentos clave con timestamp</div>
+    <div class="tl">
+      <div class="tli">
+        <div class="tldot" style="background:#1D9E75;"></div>
+        <div class="tlc">
+          <div class="tllabel" style="color:#0F6E56;">~41:16 — El problema core definido por el cliente</div>
+          <div class="tltxt">Carlos definió él mismo el problema central sin que LDP lo nombrara: cómo saber que un jugador que no tiene participación es ideal para Toluca.</div>
+          <div class="tlq">"El gran reto es cómo saber esos jugadores que no tienen participación y son ideales para el Toluca. Esa es la parte para mí más importante."</div>
+          <div class="moment-lesson ml-t">Lección: dejar que el cliente defina el problema. Solo buenas preguntas previas y escucha activa. LDP no tuvo que vender el problema — él lo vendió solo.</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tldot" style="background:#1D9E75;"></div>
+        <div class="tlc">
+          <div class="tllabel" style="color:#0F6E56;">~44:18 — El reencuadre reactivo vs. proactivo</div>
+          <div class="tltxt">Juan Cruz tomó el problema de Carlos y lo reencuadró: el formato reactivo (dato confirma decisión) versus el proactivo (dato descubre lo que nadie ve). LDP se posiciona en el proactivo.</div>
+          <div class="tlq">"Hay un formato que es reactivo: cómo justifico mi decisión a partir del dato. Y el otro que es proactivo: cómo encuentro lo que nadie está viendo."</div>
+          <div class="moment-lesson ml-t">Lección: el reencuadre reactivo/proactivo es el argumento más poderoso para niveles Elite. Usarlo siempre que el prospecto describe un proceso de validación de datos.</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tldot" style="background:#BA7517;"></div>
+        <div class="tlc">
+          <div class="tllabel" style="color:#854F0B;">~1:11:24 — La objeción técnica que desbloqueó el mejor ángulo</div>
+          <div class="tltxt">Tati propuso filtrar jugadores con pocos minutos. Carlos respondió que después hay muy poco video para justificar ante la directiva. Esto abrió el ángulo más valioso de toda la reunión.</div>
+          <div class="tlq tlq-a">"Aunque tú reduzcas a jugadores con menos del 20% de minutos, el scout va a decir: 'vi los últimos 10 partidos y el jugador jugó 45 minutos.' ¿Cómo justificás eso ante la directiva?"</div>
+          <div class="moment-lesson ml-a">Ángulo desbloqueado: "No te vayas al video porque no vas a encontrar nada. El argumento tiene que ser el historial del club que lo fichó." Este es el diferenciador que ninguna plataforma de datos tiene.</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tldot" style="background:#1D9E75;"></div>
+        <div class="tlc">
+          <div class="tllabel" style="color:#0F6E56;">~1:14:24 — "Estilo de contratación por club" — nació en la reunión</div>
+          <div class="tltxt">Tatiana propuso en vivo el concepto. Carlos lo validó inmediatamente con el ejemplo del Gent y Nico Castro: "yo sé que ese equipo ficha bien. Cuando un jugador no le va bien ahí, baja el valor de mercado y es momento de agarrarlo."</div>
+          <div class="tlq">"Tratar de hacer un ranking de equipos que fichan bien con un historial de jugadores que han traído. La manera de abordar a la directiva tiene que ser distinta — ni lo veas en video, enfocate en cómo ficha ese equipo."</div>
+          <div class="moment-lesson ml-t">Concepto validado: "Estilo de contratación por club." Usar este nombre exacto en la siguiente reunión y en el ejemplo concreto a preparar.</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tldot" style="background:#1D9E75;"></div>
+        <div class="tlc">
+          <div class="tllabel" style="color:#0F6E56;">~1:33:16 — El cierre que propuso el cliente solo</div>
+          <div class="tltxt">Carlos definió los dos temas para la siguiente reunión sin que LDP lo pidiera: 1) maximizar salidas y ventas, 2) el "hilo negro" — jugadores no destacados con argumento de historial. También pidió brief técnico del modelo.</div>
+          <div class="moment-lesson ml-t">Señal de compra fuerte: el prospecto definió los próximos pasos él solo. Respuesta correcta: confirmar y ejecutar. No agregar más.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stitle" style="margin-top:1rem;">Próximos pasos acordados</div>
+    <div class="ns"><div class="nso">LDP</div><div class="nst">Ejemplo concreto: ranking de equipos que fichan bien + historial de jugadores que trajeron + cuánto jugaron después. El "estilo de contratación por club" con datos reales.</div></div>
+    <div class="ns"><div class="nso">LDP</div><div class="nst">Maximizar salidas: análisis de jugadores del plantel de Toluca con matching de mejores destinos.</div></div>
+    <div class="ns"><div class="nso">Juan Cruz</div><div class="nst">Brief técnico sobre ponderaciones del modelo de matching para el científico de datos del club.</div></div>
+    <div class="ns"><div class="nso">Todos</div><div class="nst">Pedir celular de Carlos Gómez Cervantes a Santiago para contacto directo.</div></div>
+  </div>
+
+  <!-- BOTAFOGO -->
+  <div class="ctpanel" id="case-botafogo">
+    <div class="chead" style="background:#0C447C;">
+      <div class="clogo" style="background:#B5D4F4;color:#042C53;">BFR</div>
+      <div class="cht">
+        <h2 style="color:#E6F1FB;">Botafogo FR · Série A Brasil · 23 abr 2026</h2>
+        <p style="color:#85B7EB;">Brunno Noce (Coord. scouting) · Enrique (único analista) · David Bandera (Dir. transferencias)</p>
+      </div>
+    </div>
+    <div class="clvl" style="background:#185FA5;color:#E6F1FB;">Nivel 3 — Creator: Algoritmo propio + 1 analista extrayendo datos manualmente. Problema: eficiencia y escala.</div>
+    <div class="pbar-blue" style="margin-bottom:1rem;">"Lo que tu analista hace a mano, LDP lo hace automático, en tiempo real, sin agregar recursos."</div>
+
+    <div class="gold-quote">
+      <p>"Most of what you showed is exactly what our analyst does manually."</p>
+      <div class="att">— Brunno Noce, ~min 44:42. La frase de oro. Usarla cuando preguntan por la diferencia real con lo que hacen hoy.</div>
+    </div>
+
+    <div class="stitle">Stack real confirmado</div>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <h4>Datos técnicos y físicos</h4>
+        <div class="stack-item">SkillCorner — datos físicos profesional</div>
+        <div class="stack-item">StatsBomb + Opta — estadísticas técnicas</div>
+        <div class="stack-item">Hudl — video coding</div>
+        <div class="stack-item">LDP pre-integrado con los tres</div>
+      </div>
+      <div class="stack-card">
+        <h4>Proceso analítico</h4>
+        <div class="stack-item">Enrique (1 analista) hace todo</div>
+        <div class="stack-item">Cloud AI para extracción API Wyscout</div>
+        <div class="stack-item">Algoritmo de ranking por posición → cada 2 meses</div>
+        <div class="stack-item">B Soccer Pro → migrando a TransferRoom Scouting</div>
+      </div>
+      <div class="stack-card">
+        <h4>Estructura de scouting</h4>
+        <div class="stack-item">3 scouts regionalizados, residentes en Brasil</div>
+        <div class="stack-item">Mercados: Argentina/Paraguay · Colombia/Ecuador · MLS/México/Portugal</div>
+        <div class="stack-item">Brunno Noce (coord. profesional) · Alessandro Brito (Dir. Deportivo)</div>
+      </div>
+    </div>
+
+    <div class="stitle">Momentos clave con timestamp</div>
+    <div class="tl">
+      <div class="tli">
+        <div class="tldot" style="background:#1D9E75;"></div>
+        <div class="tlc">
+          <div class="tllabel" style="color:#0F6E56;">~14:03 — La corrección técnica que generó credibilidad inmediata</div>
+          <div class="tltxt">Brunno explicó que Enrique usaba Cloud AI para extraer datos de la API de Wyscout. Juan Cruz respondió en vivo que eso facilita mostrar datos pero no automatiza ni unifica el proceso. Brunno confirmó que el proceso seguía siendo parcialmente manual.</div>
+          <div class="moment-lesson ml-t">Lección replicable: cuando el prospecto confunde una herramienta con automatización real, corregirlo técnicamente sin atacarlo genera credibilidad inmediata. No decir "eso no sirve" — decir "eso resuelve la extracción pero no la unificación."</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tldot" style="background:#1D9E75;"></div>
+        <div class="tlc">
+          <div class="tllabel" style="color:#0F6E56;">~30:19 — El mercado abierto resonó solo</div>
+          <div class="tltxt">Brunno preguntó si el mercado de LDP era como TransferRoom. Juan Cruz aclaró que no requería suscripción. Brunno conectó inmediatamente con el costo de TransferRoom.</div>
+          <div class="tlq">"Transfer room is an expensive platform. A lot of teams don't have the money to sign them and maybe this is a good alternative."</div>
+          <div class="moment-lesson ml-t">Lección: la accesibilidad freemium bajó la guardia en segundos. El entry point sin fricción es el primer paso con cualquier club de este nivel.</div>
+        </div>
+      </div>
+      <div class="tli">
+        <div class="tldot" style="background:#BA7517;"></div>
+        <div class="tlc">
+          <div class="tllabel" style="color:#854F0B;">~44:42 — El cierre que propuso el prospecto solo</div>
+          <div class="tltxt">Brunno propuso él solo las dos reuniones de seguimiento: una técnica con Enrique y otra comercial con David Bandera. No hubo que pedirlo.</div>
+          <div class="tlq tlq-a">"I think we need to schedule a meeting of you and our data analyst because most of the things that you showed me are based in his daily process."</div>
+          <div class="moment-lesson ml-a">Cuando el prospecto propone las próximas reuniones él solo, es la señal de compra más fuerte. Respuesta: "Perfecto — una técnica con Enrique y una comercial con David Bandera. ¿Cuándo les queda mejor?"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stitle" style="margin-top:1rem;">Próximos pasos acordados</div>
+    <div class="ns"><div class="nso">Nacho</div><div class="nst">Coordinar reunión técnica: Enrique + equipo datos LDP. Foco: gaps del pipeline actual.</div></div>
+    <div class="ns"><div class="nso">Brunno</div><div class="nst">Presentar mercado abierto a David Bandera (Dir. transferencias). Coordinar con Nacho.</div></div>
+    <div class="ns"><div class="nso">Brunno</div><div class="nst">Crear perfil institucional Botafogo en LDP. Confirmar email con Alessandro Brito.</div></div>
+  </div>
+
+  <!-- PATRÓN -->
+  <div class="ctpanel" id="case-patron">
+    <div class="stitle">Comparativa entre los dos casos</div>
+    <table class="icp-table" style="margin-bottom:1.25rem;">
+      <tr><th></th><th>Botafogo FR</th><th>Toluca FC</th></tr>
+      <tr><td>Nivel</td><td>Creator (3)</td><td>Elite (4)</td></tr>
+      <tr><td>Problema central</td><td>Eficiencia — proceso manual que no escala</td><td>Descubrimiento — el dato confirma, no genera</td></tr>
+      <tr><td>Dolor explícito</td><td>"Lo que vieron es exactamente lo que hace mi analista a mano"</td><td>"Cómo saber ese jugador que no juega que puede encajar"</td></tr>
+      <tr><td>Ángulo clave LDP</td><td>Unificación + automatización + mercado abierto freemium</td><td>Estilo de contratación por club + argumento sin video</td></tr>
+      <tr><td>Entry point</td><td>Mercado abierto freemium + reunión técnica con Enrique</td><td>Ejemplo concreto: 3 jugadores subvaluados con el método</td></tr>
+      <tr><td>Pitch validado</td><td>"Lo que tu analista hace a mano, LDP lo hace automático."</td><td>"Hacés perfecto lo obvio. LDP encuentra lo invisible."</td></tr>
+      <tr><td>Cómo cerró</td><td>El prospecto propuso dos reuniones de seguimiento él solo</td><td>El prospecto definió los dos temas para la siguiente reunión él solo</td></tr>
+    </table>
+
+    <div class="stitle">Las 5 cosas que funcionaron en ambos casos</div>
+    <ul class="ql" style="margin-bottom:1.25rem;">
+      <li><span class="qn">1</span><span>Abrir con el dato de mercado ("82% no se monetiza") — contexto antes que producto. Crea urgencia sin vender.</span></li>
+      <li><span class="qn">2</span><span>Escuchar cómo trabajan hoy antes de proponer cualquier cosa. El dolor real lo nombran ellos — el vendedor solo escucha y confirma.</span></li>
+      <li><span class="qn">3</span><span>Corregir técnicamente sin atacar cuando confunden herramientas. Genera credibilidad sin hacer sentir mal a nadie.</span></li>
+      <li><span class="qn">4</span><span>Posicionar LDP como capa encima de lo que ya tienen — nunca reemplazo. "No venimos a reemplazar nada. Venimos a hacer que todo funcione mejor."</span></li>
+      <li><span class="qn">5</span><span>Dejar que el prospecto cierre con los próximos pasos. En ambos casos lo propusieron ellos solos. Solo confirmar y no agregar más.</span></li>
+    </ul>
+
+    <div class="stitle">Señales de compra — cómo reconocerlas y qué hacer</div>
+    <div class="sq"><div class="sq-label">Señal verde — el prospecto valida el problema con sus palabras</div><div class="sq-body">Botafogo: "Most of what you showed is exactly what our analyst does manually." / Toluca: "El gran reto es cómo saber ese jugador que no juega que puede encajar."</div><div class="sq-note">Qué hacer: confirmar con pregunta que profundiza. "¿Y cuánto tiempo le lleva hacer eso hoy?" Dejar que el dolor crezca.</div></div>
+    <div class="sq"><div class="sq-label">Señal verde — el prospecto propone las próximas reuniones</div><div class="sq-body">Ambos casos: el prospecto estructuró el siguiente paso él solo. Botafogo: dos tracks (técnico + comercial). Toluca: dos temas concretos para la siguiente sesión.</div><div class="sq-note">Qué hacer: confirmar y no agregar más. "Perfecto, dos reuniones — técnica y comercial. ¿Cuándo les queda mejor?"</div></div>
+    <div class="sq"><div class="sq-label">Señal verde — nombra una herramienta cara que quiere alternativa</div><div class="sq-body">Botafogo: "TransferRoom is an expensive platform." Señal directa de apertura al mercado abierto de LDP.</div><div class="sq-note">Qué hacer: no atacar la herramienta. "El mercado de LDP es freemium — podés crear el perfil ahora mismo y empezás a usarlo sin costo."</div></div>
+    <div class="sq"><div class="sq-label">Señal ámbar — tienen infraestructura avanzada y la defienden</div><div class="sq-body">Toluca mostró su hub interno con orgullo. Correcto — es un activo real y sólido.</div><div class="sq-note">Qué hacer: validarlo primero. "A esta plataforma se le puede agregar una capa de inteligencia de mercado." Nunca hablar de reemplazar.</div></div>
+  </div>
+</div>
+
+<!-- TAB 6: ICP -->
+<div class="tpanel" id="tab-icp">
+  <div class="stitle">ICP validado y posicionamiento por nivel</div>
+  <div class="pos-card">
+    <p>Posicionamiento central — válido para todos los niveles:</p>
+    <strong>"No te damos más data. Te damos decisiones y ejecución."</strong>
+  </div>
+  <div class="diff-row">
+    <div class="diff-card" style="border-left:3px solid #5DCAA5;">
+      <h4 style="color:#0F6E56;">Nivel Creator (3) — problema: eficiencia</h4>
+      <p>Tienen datos pero el proceso no escala. Un analista haciendo todo con scripts o Cloud AI. Múltiples fuentes sin unificar. Ranking por lotes.</p>
+      <p style="font-style:italic;color:#0F6E56;margin-top:6px;font-size:12px;">"Lo que tu analista hace a mano, LDP lo hace automático, en tiempo real, sin agregar recursos."</p>
+    </div>
+    <div class="diff-card" style="border-left:3px solid #1D9E75;">
+      <h4 style="color:#085041;">Nivel Elite (4) — problema: descubrimiento</h4>
+      <p>Infraestructura sólida. Triple match. El dato confirma pero no genera. El jugador invisible no tiene video para justificarlo ante la directiva.</p>
+      <p style="font-style:italic;color:#085041;margin-top:6px;font-size:12px;">"Ustedes hacen perfecto lo obvio. Nosotros encontramos lo invisible — y construimos el argumento que el video no puede dar."</p>
+    </div>
+  </div>
+  <div class="stitle">Señales para ubicar el nivel en los primeros 5 minutos</div>
+  <table class="icp-table">
+    <tr><th>Si dice esto</th><th>Nivel</th><th>Cómo entra LDP</th></tr>
+    <tr><td>"Tenemos un analista que hace todo"</td><td>Creator</td><td>Liberar al analista — automatización y unificación</td></tr>
+    <tr><td>"Usamos Cloud AI para extraer datos de la API"</td><td>Creator</td><td>Extracción ≠ unificación. LDP hace las dos.</td></tr>
+    <tr><td>"El ranking corre cada X semanas / meses"</td><td>Creator</td><td>Tiempo real vs. por lotes</td></tr>
+    <tr><td>"Tenemos triple match — data + scout + plataforma"</td><td>Elite</td><td>El triple match valida — LDP descubre lo que no entra en el triple match</td></tr>
+    <tr><td>"El jugador con pocos minutos no tiene video"</td><td>Elite</td><td>El argumento no es el video — es el historial del club que lo fichó</td></tr>
+    <tr><td>"Los mismos clubes miramos los mismos jugadores"</td><td>Elite</td><td>Ventaja de información: estilo de contratación por club</td></tr>
+    <tr><td>"TransferRoom es caro"</td><td>Cualquier</td><td>Mercado abierto freemium como entry point inmediato</td></tr>
+    <tr><td>"Acabo de contratar un científico de datos"</td><td>Elite</td><td>Momento exacto — necesita materia prima e inteligencia de mercado</td></tr>
+  </table>
+  <div class="stitle" style="margin-top:1rem;">Las 5 features clave para el ICP (en orden de impacto)</div>
+  <div class="feature-grid">
+    <div class="fc"><div class="fn">Estilo contratación por club</div><div class="fd">El argumento sin video para jugadores invisibles — validado por Toluca ~min 1:14</div></div>
+    <div class="fc"><div class="fn">Custom scoring / ADN</div><div class="fd">Criterio del club en score automático y tiempo real</div></div>
+    <div class="fc"><div class="fn">Unificación multi-fuente</div><div class="fd">SkillCorner + StatsBomb + Opta + GPS bajo un motor Google Cloud</div></div>
+    <div class="fc"><div class="fn">Explicabilidad</div><div class="fd">Por qué este jugador, para este club, con qué argumento ante la directiva</div></div>
+    <div class="fc"><div class="fn">Mercado abierto</div><div class="fd">Freemium · Alternativa a TransferRoom · 87% sub-5M</div></div>
+  </div>
+</div>
+
+<!-- TAB 7: CIERRE -->
+<div class="tpanel" id="tab-cierre">
+  <div class="stitle">Palabras clave para reforzar en cada momento</div>
+  <div class="ksec"><div class="kslabel">El argumento central nuevo — validado por Toluca</div>
+    <span class="kpill">El hilo negro</span><span class="kpill">Jugadores invisibles</span><span class="kpill">Estilo de contratación por club</span><span class="kpill">El argumento que el video no puede dar</span><span class="kpill">Historial del equipo que lo fichó</span><span class="kpill">No te vayas al video</span>
+  </div>
+  <div class="ksec"><div class="kslabel">Cuando hablan de encontrar jugadores no obvios</div>
+    <span class="kpill">Lo que nadie está viendo</span><span class="kpill">Bajo minutos alto potencial</span><span class="kpill">ADN por posición</span><span class="kpill">Contexto LATAM</span><span class="kpill">Reactivo vs proactivo</span><span class="kpill">Descubrir no validar</span>
+  </div>
+  <div class="ksec"><div class="kslabel">Cuando tienen datos fragmentados / múltiples fuentes</div>
+    <span class="kpill">Un solo criterio</span><span class="kpill">Unificación de fuentes</span><span class="kpill">Google Cloud partner LATAM</span><span class="kpill">Pre-integrado con SkillCorner / Hudl / Catapult</span><span class="kpill">Motor de integración</span>
+  </div>
+  <div class="ksec"><div class="kslabel">Cuando tienen hub propio / infraestructura avanzada</div>
+    <span class="kpill">Capa de inteligencia de mercado</span><span class="kpill">Integración vía API</span><span class="kpill">No reemplaza, complementa</span><span class="kpill">A esta plataforma se le puede agregar...</span><span class="kpill">Explicabilidad ante la directiva</span>
+  </div>
+  <div class="ksec"><div class="kslabel">Cuando hablan de transferencias y mercado</div>
+    <span class="kpill">82% no se monetiza</span><span class="kpill">87% sub-5M</span><span class="kpill">Mercado abierto freemium</span><span class="kpill">Alternativa a TransferRoom</span><span class="kpill">Decisiones y ejecución</span>
+  </div>
+  <div class="stitle" style="margin-top:1.25rem;">Frases de cierre por perfil</div>
+  <div class="cgrid">
+    <div class="ccard"><h4>Director deportivo</h4><p>"¿Cuánto vale tomar una decisión de 3M con datos en vez de intuición? ¿Y cuánto vale encontrar al jugador correcto antes que Monterrey o Tigres?"</p></div>
+    <div class="ccard"><h4>Director de transferencias</h4><p>"El mercado de LDP es la alternativa freemium a TransferRoom con matching automático y argumento escrito. La primera operación que optimicen amortiza todo."</p></div>
+    <div class="ccard"><h4>Jefe de scouting</h4><p>"Imaginense poder llevar al DT un jugador con pocos minutos con el argumento de que el Gent — que ficha increíble — lo tiene parado. Sin necesitar el video."</p></div>
+    <div class="ccard"><h4>Analista de datos</h4><p>"Lo que LDP hace es que el proceso que hoy te lleva días y depende solo de vos, pase a ser automático, en tiempo real y sin agregar recursos."</p></div>
+    <div class="ccard"><h4>Científico de datos</h4><p>"Sus modelos corren sobre los datos de LDP. Ustedes se concentran en el modelo — nosotros garantizamos materia prima confiable, actualizada y unificada."</p></div>
+    <div class="ccard"><h4>Cierre universal</h4><p>"No venimos a reemplazar nada. Venimos a hacer que todo lo que ya tienen funcione mejor — y a encontrar lo que el mercado todavía no está viendo."</p></div>
+  </div>
+  <div class="abcbar">
+    <div class="abcl">A B C</div>
+    <p><strong>Always Be Closing.</strong> Cada respuesta termina con una pregunta de avance: "¿Qué análisis necesitan esta semana?" / "¿Cuándo hacemos la demo con sus datos reales?" / "¿Le mando el brief al científico de datos esta semana?" / "¿Creamos el perfil en el mercado ahora mismo?"</p>
+  </div>
+</div>
+
+</div>
+
+<script>
+const profiles={
+  director:{icon:'🏟️',name:'Director deportivo',role:'Decisor estratégico',
+    pains:[{t:'Decisiones de mercado sin respaldo de datos — 82% de transferencias no se monetiza',c:'pred'},{t:'El proceso de scouting valida lo que ya saben, no genera oportunidades nuevas',c:'pred'},{t:'No sabe qué jugadores invisibles tiene el mercado que encajan en el club',c:'pamb'},{t:'Salidas de jugadores no optimizadas — falta argumento de negocio para presentar destinos',c:'pamb'},{t:'Reportes tardíos cuando los necesita para decidir ante la directiva',c:'pblu'}],
+    qs:['Cuando van a cerrar una transferencia, ¿qué información tienen y cómo la consiguen?','¿El proceso de scouting genera oportunidades nuevas o valida candidatos que ya tenían?','¿Pueden encontrar jugadores que no están en el radar de clubes con presupuesto similar?','¿Tienen sistema para identificar los mejores destinos de salida para los jugadores del plantel?','¿Cómo justifican ante la directiva la compra de un jugador que tiene pocos minutos?','Si el DT pidiera 3 alternativas no obvias ahora mismo, ¿en cuánto tiempo lo tienen?'],
+    val:'LDP convierte el proceso de scouting de reactivo a proactivo. El director descubre lo invisible, construye el argumento que el video no puede dar y optimiza salidas antes que la competencia.',
+    lvl:'Para Toluca (Elite): pitch de descubrimiento y argumento sin video. Para Botafogo (Creator): pitch de eficiencia y escala. Siempre conectar con el Director de Transferencias para el track comercial paralelo.'
+  },
+  transferencias:{icon:'💼',name:'Director de transferencias',role:'Ejecutor de mercado',
+    pains:[{t:'87% de transacciones con valor real están sub-5M — sin herramienta específica para ese segmento',c:'pred'},{t:'TransferRoom caro y sin matching automático integrado a los datos propios del club',c:'pred'},{t:'Sin argumento de negocio para presentar destinos de salida más allá del rendimiento en cancha',c:'pamb'},{t:'El proceso de presentar un jugador a un club lleva tiempo y recursos manuales',c:'pamb'},{t:'No tiene visibilidad de qué clubes necesitan el tipo de jugador que quiere vender ahora',c:'pblu'}],
+    qs:['¿Cómo identifican los mejores destinos de salida para los jugadores del plantel?','¿Tienen matching automático que explique por qué un club necesita ese jugador ahora?','¿Cuánto cuesta la suscripción de TransferRoom vs el retorno que genera?','¿Pueden publicar un jugador disponible y recibir recomendaciones automáticas de destinos?','¿Cómo trabajan el segmento de jugadores sub-5M?','¿El argumento de venta puede ser solo el dato de rendimiento o necesitan algo más?'],
+    val:'LDP es la plataforma de ejecución del Director de Transferencias. El matching automático explica por qué un jugador encaja en cada club destino con argumentos escritos, no solo video. El mercado abierto freemium cubre el 87% de transacciones sub-5M.',
+    lvl:'Entry point freemium: crear el perfil en el mercado de LDP sin costo. Upsell: matching + análisis de destinos. En Botafogo: David Bandera fue el segundo track — clave para cerrar el deal comercial.'
+  },
+  scout:{icon:'🔍',name:'Jefe de scouting',role:'Operativo de identificación',
+    pains:[{t:'Difícil encontrar jugadores que no juegan pero encajan en el ADN del club — el principal reto del scouting moderno',c:'pred'},{t:'El video no alcanza para justificar un jugador con pocos minutos ante la directiva',c:'pred'},{t:'Sin método sistemático para analizar el historial de fichajes de equipos que fichan bien',c:'pamb'},{t:'Los clubes con presupuesto similar miran las mismas listas — sin ventaja de información',c:'pamb'},{t:'Campogramas individuales por scout, sin centralización automática',c:'pblu'}],
+    qs:['¿Cómo identifican jugadores que no juegan pero serían ideales para el club?','Cuando llevan ese jugador al DT, ¿el argumento puede ser solo el dato o necesitan video?','¿Analizan el historial de fichajes de equipos que fichan bien (Gent, Talleres, Red Bull)?','¿Hay clubes en el mercado que cuando fichan a alguien ustedes saben que ese jugador puede interesarles?','¿Tienen forma de saber en qué equipos con buen scouting hay jugadores que no juegan hoy?','¿Los campogramas de los scouts se centralizan en algún lugar o cada uno los gestiona por su cuenta?'],
+    val:'LDP construye el "estilo de contratación por club": qué jugadores compran los equipos que fichan bien, cuánto jugaron antes y cuánto jugaron después. Ese es el argumento que el video no puede dar cuando el jugador tiene 45 minutos en 30 partidos.',
+    lvl:'Gold o Creator. Toluca (Elite): triple match sofisticado donde LDP agrega el discovery de jugadores invisibles y el argumento alternativo al video. Botafogo (Creator): scouts regionalizados + algoritmo propio que LDP potencia con tiempo real.'
+  },
+  analista:{icon:'📊',name:'Analista de datos',role:'El cuello de botella del proceso',
+    pains:[{t:'Extrae y normaliza datos de múltiples fuentes manualmente con scripts / Cloud AI — no escala',c:'pred'},{t:'El pipeline entero depende de una sola persona — si no está, todo se para',c:'pred'},{t:'SkillCorner + StatsBomb + Opta: tres fuentes sin criterio unificado automático',c:'pamb'},{t:'El algoritmo de ranking corre por lotes (cada 2 meses) — demasiado lento para el mercado',c:'pamb'},{t:'PDFs de análisis de rivales generados a mano, partido a partido',c:'pblu'}],
+    qs:['¿Cuánto tiempo de la semana pasás integrando fuentes vs analizando?','¿De dónde vienen los datos? ¿Se actualizan solos o los cargás manualmente?','¿Si no estás disponible, el proceso de datos se para completamente?','¿El ranking de jugadores corre en tiempo real o lo generás periódicamente?','¿El análisis de rivales lo generás manualmente partido a partido?','¿Usás Cloud AI o scripts para extraer datos de APIs? ¿Eso también unifica las fuentes?'],
+    val:'LDP libera al analista de la fontanería. Unifica SkillCorner + StatsBomb + Opta + Hudl bajo un motor de integración (Google Cloud). Los análisis corren solos. El analista pasa de fontanero a analista estratégico.',
+    lvl:'Creator principalmente. Botafogo: Enrique es el caso más claro — hace todo solo con Cloud AI y confirmó: "lo que vieron es exactamente lo que yo hago a mano." Entry point inmediato y directo.'
+  },
+  cientifico:{icon:'🧪',name:'Científico de datos',role:'Constructor de modelos',
+    pains:[{t:'Datos externos de fuentes fragmentadas sin unificar rompen los modelos',c:'pred'},{t:'Tiempo gastado en limpieza y normalización en vez de modelado',c:'pred'},{t:'El algoritmo propio no tiene inteligencia de destinos de transferencia',c:'pamb'},{t:'El sistema de ranking no puede correr en tiempo real — solo por lotes',c:'pamb'},{t:'El hub del club no puede consumir modelos de scoring externos vía API',c:'pblu'}],
+    qs:['¿De dónde viene la data externa que alimenta los modelos hoy?','¿Cuánto tiempo va a limpieza y normalización versus a modelado real?','¿El algoritmo propio puede consumir modelos de LDP vía API directamente?','¿El sistema corre en tiempo real o por lotes? ¿Con qué frecuencia?','¿Tienen datos históricos de comportamiento de transferencias para entrenar modelos de salida?','¿El hub del club puede integrar scores de discovery generados externamente?'],
+    val:'LDP entrega modelos de matching, undervalued discovery y valoración de mercado disponibles vía API. El científico se concentra en el modelo — LDP garantiza materia prima confiable, actualizada, unificada y normalizada.',
+    lvl:'Creator o Elite. Toluca: acaba de contratar su científico — momento exacto de integrar LDP. El brief técnico de ponderaciones del modelo es el primer entregable acordado con ellos.'
+  }
+};
+
+function selP(k){
+  document.querySelectorAll('.pcard').forEach(c=>c.classList.remove('sel'));
+  document.querySelector('[data-profile="'+k+'"]').classList.add('sel');
+  const p=profiles[k];
+  document.getElementById('profileDetail').innerHTML=`
+    <div class="dhead"><div style="font-size:18px;">${p.icon}</div><h2>${p.name}</h2><span class="brole">${p.role}</span></div>
+    <div class="two" style="margin-bottom:1rem;">
+      <div><div class="mclabel">Sus dolores principales</div><div style="margin-top:7px;">${p.pains.map(x=>`<span class="ptag ${x.c}" style="margin-bottom:3px;display:inline-block;">${x.t}</span>`).join('')}</div></div>
+      <div><div class="mclabel">Preguntas para abrir la conversación</div><ul class="ql" style="margin-top:7px;">${p.qs.map((q,i)=>`<li><span class="qn">${i+1}</span><span>${q}</span></li>`).join('')}</ul></div>
+    </div>
+    <div class="two">
+      <div class="mc" style="border-left:3px solid #1D9E75;background:#E1F5EE;"><div class="mclabel" style="color:#085041;">Qué valor agrega LDP</div><p style="font-size:12px;color:#085041;line-height:1.5;margin-top:3px;">${p.val}</p></div>
+      <div class="mc" style="border-left:3px solid #BA7517;background:#FAEEDA;"><div class="mclabel" style="color:#854F0B;">Nivel en la curva de adopción</div><p style="font-size:12px;color:#854F0B;line-height:1.5;margin-top:3px;">${p.lvl}</p></div>
+    </div>`;
+}
+
+document.getElementById('mainNav').addEventListener('click',function(e){
+  const b=e.target.closest('.tbtn');if(!b)return;
+  document.querySelectorAll('.tbtn').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.tpanel').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  document.getElementById('tab-'+b.dataset.tab).classList.add('active');
+});
+document.getElementById('caseNav').addEventListener('click',function(e){
+  const b=e.target.closest('.ctbtn');if(!b)return;
+  document.querySelectorAll('.ctbtn').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.ctpanel').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  document.getElementById('case-'+b.dataset.case).classList.add('active');
+});
+selP('director');
+</script>
